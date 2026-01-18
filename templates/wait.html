@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waiting</title>
+    <meta http-equiv="refresh" content="3">
+</head>
+<body>
+    <h2>Your question has been submitted ✅</h2>
+
+    {% if position == 0 %}
+        <h3 style="color: green;">You're next! 🚀</h3>
+        <p>Please be ready — the TA will help you shortly.</p>
+    {% else %}
+        <p>People ahead of you: {{ position }}</p>
+        <p>Please wait. This page updates automatically.</p>
+    {% endif %}
+</body>
+</html>

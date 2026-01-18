@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doubt Queue</title>
+    <meta http-equiv="refresh" content="10">
+</head>
+<body>
+    <h2>Doubt Queue</h2>
+
+    <a href="/logout">Logout</a>
+    <br><br>
+
+    {% if queue %}
+        <ul>
+        {% for q in queue %}
+            <li>
+                <b>{{ q.name }}</b>: {{ q.question }}
+                <a href="/resolve/{{ loop.index0 }}">✔ Done</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pending doubts 🎉</p>
+    {% endif %}
+
+    <br>
+    <a href="/reset">Reset Queue</a>
+</body>
+</html>
