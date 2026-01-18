@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Waiting</title>
-<meta http-equiv="refresh" content="3">
+<meta http-equiv="refresh" content="3" />
 
 <style>
 :root {
@@ -42,6 +43,7 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     max-width: 440px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -71,17 +73,16 @@ p {
     background: linear-gradient(135deg, var(--highlight-blue-start), var(--highlight-blue-end));
     color: white;
     font-weight: 700;
-    font-size: 1.2rem;      /* smaller font */
-    padding: 2px 8px;       /* less padding */
-    border-radius: 20px;    /* smaller rounded corners */
+    font-size: 1.2rem;
+    padding: 2px 8px;
+    border-radius: 20px;
     box-shadow: 0 0 6px rgba(0, 180, 255, 0.6);
     margin-left: 6px;
     vertical-align: middle;
-    min-width: 30px;        /* smaller min width */
+    min-width: 30px;
     text-align: center;
     line-height: 1.2;
 }
-
 
 /* Pulse animation for the "You're next!" message */
 @keyframes pulse {
@@ -92,6 +93,46 @@ p {
     50% {
         opacity: 0.7;
         text-shadow: 0 0 20px var(--highlight-blue-end);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        max-width: 90%;
+        border-radius: 16px;
+    }
+    h2 {
+        font-size: 1.7rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .position-badge {
+        font-size: 1rem;
+        padding: 2px 6px;
+        min-width: 26px;
+    }
+}
+
+@media (max-width: 400px) {
+    h2 {
+        font-size: 1.4rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .position-badge {
+        font-size: 0.9rem;
+        padding: 1px 6px;
+        min-width: 24px;
     }
 }
 </style>

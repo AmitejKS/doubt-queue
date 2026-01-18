@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resolved</title>
 <meta http-equiv="refresh" content="8;url=/" />
 
@@ -41,6 +42,7 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     max-width: 480px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -64,6 +66,30 @@ p {
     }
     to {
         text-shadow: 0 0 20px var(--highlight-color), 0 0 40px var(--highlight-color);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        max-width: 90%;
+        border-radius: 16px;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    h2 {
+        font-size: 1.4rem;
+    }
+    p {
+        font-size: 0.9rem;
     }
 }
 </style>
