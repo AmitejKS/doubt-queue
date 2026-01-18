@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Ask a Doubt</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Got Doubts?</title>
 <style>
 :root {
     --bg-gradient: linear-gradient(135deg, #121212, #1c1c1c);
     --card-bg: rgba(255, 255, 255, 0.15);
     --text-color: #ffffff;
-    --input-bg: rgba(255, 255, 255, 0.2);
-    --btn-gradient: linear-gradient(135deg, #ff6ec4, #7873f5);
+    --btn-gradient: linear-gradient(135deg, #3a8ee6, #00b4ff);
 }
 
 /* RESET */
@@ -23,92 +22,76 @@
 
 body {
     min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-gradient);
-    position: relative;
-    color: var(--text-color);
-}
-
-/* CARD */
-.container {
-    width: 490px;
-    padding: 40px;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    position: relative;
-}
-
-.container h2 {
+    padding: 20px;
     text-align: center;
-    margin-bottom: 30px;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    max-width: 440px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h2 {
     font-size: 2.5rem;
-    font-weight: 700;
+    margin-bottom: 30px;
     background: linear-gradient(90deg, #3a8ee6, #00b4ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
     text-shadow:
-        0 0 4px rgba(58, 142, 230, 0.4),
-        0 0 8px rgba(0, 180, 255, 0.3);
-    position: relative;
+        0 0 6px rgba(58, 142, 230, 0.5),
+        0 0 12px rgba(0, 180, 255, 0.3);
 }
 
-/* Underline accent */
-.container h2::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 3px;
-    margin: 10px auto 0 auto;
-    background: linear-gradient(90deg, #3a8ee6, #00b4ff);
-    border-radius: 2px;
-    box-shadow: 0 0 5px #00b4ff;
-}
-
-
-/* INPUTS */
-.input-group {
-    margin-bottom: 25px;
-}
-
-.input-group input,
-.input-group textarea {
+/* Form styles */
+form input,
+form textarea {
     width: 100%;
     padding: 14px 16px;
-    background: var(--input-bg);
+    margin-bottom: 25px;
     border: none;
-    outline: none;
     border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
     color: var(--text-color);
-    font-size: 15px;
-    transition: 0.3s;
+    font-size: 16px;
+    outline: none;
+    resize: vertical;
+    box-sizing: border-box;
+    transition: background 0.3s;
 }
 
-.input-group textarea {
-    resize: none;
-}
-
-.input-group input::placeholder,
-.input-group textarea::placeholder {
+form input::placeholder,
+form textarea::placeholder {
     color: rgba(255,255,255,0.7);
 }
 
-/* BUTTON */
+form input:focus,
+form textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
 button {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     border: none;
     border-radius: 50px;
-    background: linear-gradient(135deg, #3a8ee6, #00b4ff);
+    background: var(--btn-gradient);
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.4s;
+    transition: transform 0.15s ease, box-shadow 0.4s;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
@@ -116,29 +99,52 @@ button:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 35px rgba(0,0,0,0.5);
 }
+
 button:active {
     transform: scale(0.95);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+/* Responsive text and container adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        max-width: 90%;
+        border-radius: 16px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
 </style>
 </head>
-
 <body>
 
 <div class="container">
-    <h2>Got a Question?</h2>
+    <h2>Got Doubts?</h2>
 
     <form method="POST">
-        <div class="input-group">
-            <input name="name" placeholder="Name" />
-        </div>
-
-        <div class="input-group">
-            <textarea name="question" rows="4" placeholder="Type your question here..." required></textarea>
-        </div>
-
+        <input name="name" placeholder="Name (optional)" autocomplete="off" />
+        <textarea name="question" rows="4" placeholder="Type your question here..." required></textarea>
         <button type="submit">Submit</button>
     </form>
 </div>
