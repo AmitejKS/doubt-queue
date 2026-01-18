@@ -20,7 +20,7 @@ def submit():
         name = request.form.get("name", "").strip()
         question = request.form.get("question", "").strip()
 
-        if not question:
+        if not question or name:
             # If empty, just reload submit page
             return redirect(url_for("submit"))
 
