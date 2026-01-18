@@ -1,19 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>TA Login</title>
+<meta charset="UTF-8" />
+<title>TA Login</title>
+
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #121212, #1c1c1c);
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.2);
+    --btn-gradient: linear-gradient(135deg, #3a8ee6, #00b4ff);
+    --error-color: #ff4c4c;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    width: 360px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #3a8ee6, #00b4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    text-shadow:
+        0 0 6px rgba(58, 142, 230, 0.5),
+        0 0 12px rgba(0, 180, 255, 0.3);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 12px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 15px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+input[type="password"]::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+input[type="password"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: var(--btn-gradient);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
 </head>
 <body>
+
+<div class="container">
     <h2>TA Login</h2>
 
     {% if error %}
-        <p style="color:red;">{{ error }}</p>
+        <p class="error-message">{{ error }}</p>
     {% endif %}
 
     <form method="POST">
-        <input type="password" name="password" placeholder="TA Password" required>
-        <br><br>
+        <input type="password" name="password" placeholder="TA Password" required />
         <button type="submit">Login</button>
     </form>
+</div>
+
 </body>
 </html>

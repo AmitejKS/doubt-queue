@@ -1,12 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Resolved</title>
-    <!-- Redirect to submit page after 10 seconds -->
-    <meta http-equiv="refresh" content="10;url=/">
+<meta charset="UTF-8" />
+<title>Resolved</title>
+<meta http-equiv="refresh" content="8;url=/" />
+
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #121212, #1c1c1c);
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #ffffff;
+    --highlight-color: #ffca28; /* warm gold */
+    --text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    max-width: 480px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px var(--highlight-color);
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-shadow: var(--text-shadow);
+}
+
+/* Glow animation for celebration */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--highlight-color), 0 0 40px var(--highlight-color);
+    }
+}
+</style>
 </head>
 <body>
+
+<div class="container">
     <h2>Your doubt has been resolved 🎉</h2>
     <p>You will be redirected to the question page shortly.</p>
+</div>
+
 </body>
 </html>

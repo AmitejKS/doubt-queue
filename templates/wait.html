@@ -1,18 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Waiting</title>
-    <meta http-equiv="refresh" content="3">
+<meta charset="UTF-8" />
+<title>Waiting</title>
+<meta http-equiv="refresh" content="3">
+
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #121212, #1c1c1c);
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #ffffff;
+    --highlight-blue-start: #3a8ee6;
+    --highlight-blue-end: #00b4ff;
+    --text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    max-width: 440px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: var(--text-shadow);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--highlight-blue-start);
+    text-shadow: 0 0 10px var(--highlight-blue-end);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-shadow: var(--text-shadow);
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.position-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--highlight-blue-start), var(--highlight-blue-end));
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;      /* smaller font */
+    padding: 2px 8px;       /* less padding */
+    border-radius: 20px;    /* smaller rounded corners */
+    box-shadow: 0 0 6px rgba(0, 180, 255, 0.6);
+    margin-left: 6px;
+    vertical-align: middle;
+    min-width: 30px;        /* smaller min width */
+    text-align: center;
+    line-height: 1.2;
+}
+
+
+/* Pulse animation for the "You're next!" message */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--highlight-blue-end);
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 0 20px var(--highlight-blue-end);
+    }
+}
+</style>
+
 </head>
 <body>
+
+<div class="container">
     <h2>Your question has been submitted ✅</h2>
 
     {% if position == 0 %}
-        <h3 style="color: green;">You're next! 🚀</h3>
+        <h3>You're next! 🚀</h3>
         <p>Please be ready — the TA will help you shortly.</p>
     {% else %}
-        <p>People ahead of you: {{ position }}</p>
+        <p>
+          People ahead of you:
+          <span class="position-badge">{{ position }}</span>
+        </p>
         <p>Please wait. This page updates automatically.</p>
     {% endif %}
+</div>
+
 </body>
 </html>
